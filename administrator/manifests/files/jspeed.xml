@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="1.8" type="file" method="upgrade">
+<name>Русский язык для JSpeed</name>
+<packagename>JSpeed ru-RU</packagename>
+<version>1.8</version>
+<creationDate>19 декабря 2021</creationDate>
+<packager>Aleksius.com</packager>
+<packagerEmail>email@aleksius.com</packagerEmail>
+<packagerurl>https://aleksius.com</packagerurl>
+<tag>ru-RU</tag>
+<author>Хорошевский Алексей</author>
+<authorEmail>email@aleksius.com</authorEmail>
+<authorUrl>https://aleksius.com</authorUrl>
+<description><![CDATA[
+  <div align="center">
+    <table border="0" width="90%">
+	    <tr>
+		    <td width="100%" colspan="2">
+			<div align="center"> <a href="https://aleksius.com/" target="_blank"><img border="0" src="https://aleksius.com/templates/aleksius-com.png" alt="aleksius.com" /></a>
+		      <div align="center"> 
+				<h3>JSpeed 1.8</h3>
+		      </div>
+		      <hr />
+		    </td>
+	    </tr>
+	    <tr>
+		    <td width="18%"><u><b>Язык:</b></u></td>
+		    <td width="80%">Русский</td>
+	    </tr>
+	    <tr>
+		    <td width="18%"><u><b>Часть сайта:</b></u></td>
+		    <td width="80%">Административная</td>
+	    </tr>
+	    <tr>
+		    <td width="18%"><u><b>Автор:</b></u></td>
+		    <td width="80%">Хорошевский Алексей</td>
+	    </tr>
+	    <tr>
+		    <td width="18%"><u><b>Сайт:</b></u></td>
+		    <td width="80%"><a href="https://aleksius.com" target="_blank">https://aleksius.com</a></td>
+	    </tr>
+	    <tr>
+		    <td width="18%"><u><b>Перевод для версии:</b></u></td>
+		    <td width="80%">1.8</td>
+	    </tr>
+	    <tr>
+		    <td width="100%" colspan="2">
+		      <p align="center"><b><font color="#008000">Проверьте сайт <a href="https://aleksius.com/joomla/rusifikatory/rusifikator-jspeed" target="_blank">Aleksius.com</a>, скачайте новую версию перевода данного расширения. Справка и обзор на русском языке «<a href="https://aleksius.com/joomla/rasshireniya/jspeed" target="_blank">Обзор JSitemap PRO. Карта сайта Джумла 3</a>», «<a href="https://aleksius.com/joomla/rasshireniya/uskoryaem-joomla" target="_blank">Обзор JSpeed (часть 2). Настройки плагина для ускорения Joomla</a>».</font></b></td>
+	    </tr>
+    </table>
+  </div>]]></description>
+<fileset>
+<files folder="admin" target="administrator/language/ru-RU">
+		  <filename>ru-RU.plg_system_jspeed.ini</filename>
+		  <filename>ru-RU.plg_system_jspeed.sys.ini</filename>
+</files>
+</fileset>
+</extension>

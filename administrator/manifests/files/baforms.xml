@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.0.0" type="file" method="upgrade">
+    <name>BaForms</name>
+    <creationDate>18 June 2015</creationDate>
+    <author>Balbooa</author>
+    <copyright>Balbooa 2016</copyright>
+    <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+    <authorEmail>support@balbooa.com</authorEmail>
+    <authorUrl>http://balbooa.com</authorUrl>
+    <version>2.0.0</version>
+    <fileset>
+    <files folder="administrator" target="administrator/language/ru-RU">
+        <filename>ru-RU.com_baforms.ini</filename>
+        <filename>ru-RU.com_baforms.sys.ini</filename>
+    </files>
+</fileset>
+</extension>

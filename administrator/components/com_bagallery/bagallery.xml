@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.0.0" method="upgrade">
+    <name>BaGallery</name>
+    <creationDate>18 June 2015</creationDate>
+    <author>Balbooa</author>
+    <copyright>Balbooa 2016</copyright>
+    <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+    <authorEmail>support@balbooa.com</authorEmail>
+    <authorUrl>http://balbooa.com</authorUrl>
+    <version>2.3.4</version>
+    <description>BAGALLERY_DESCRIPTION</description>
+    <tag>pro</tag>
+    
+    <!-- Install Database Section -->
+    <install>
+        <sql>
+            <file driver="mysql" charset="utf8">installation/install.mysql.utf8.sql</file>
+        </sql>
+    </install>
+
+    <!-- Uninstall Database Section -->
+    <uninstall>
+        <sql>
+            <file driver="mysql" charset="utf8">installation/uninstall.mysql.utf8.sql</file>
+        </sql>
+    </uninstall>
+    
+    <update>
+        <schemas>
+            <schemapath type="mysql">installation/updates/mysql</schemapath>
+        </schemas>
+    </update>
+    
+    <!-- Site Main File Copy Section -->
+    <files folder="site">
+        <filename>bagallery.php</filename>
+        <filename>controller.php</filename>
+        <filename>index.html</filename>
+        <folder>assets</folder>
+        <folder>controllers</folder>    
+        <folder>helpers</folder>
+        <folder>libraries</folder>
+        <folder>models</folder>
+        <folder>views</folder>
+    </files>
+    
+    <administration>
+        <!-- Administration Menu Section -->
+        <menu>GALLERY</menu>
+        
+        <!-- Administration Main Language File Copy Section -->
+        <languages folder="admin/language">
+            <language tag="en-GB">en-GB/en-GB.com_bagallery.ini</language>
+            <language tag="en-GB">en-GB/en-GB.com_bagallery.sys.ini</language>
+        </languages>
+        
+        <!-- Administration Main File Copy Section -->
+        <files folder="admin">
+            <!-- Admin Main File Copy Section -->
+            <filename>access.xml</filename>
+            <filename>bagallery.php</filename>
+            <filename>config.xml</filename>
+            <filename>controller.php</filename>
+            <filename>index.html</filename>
+            <folder>assets</folder>
+            <folder>controllers</folder>
+            <folder>helpers</folder>
+            <folder>installation</folder>
+            <folder>language</folder>
+            <folder>models</folder>
+            <folder>tables</folder>
+            <folder>views</folder>
+        </files>
+    </administration>
+    
+    <scriptfile>script.php</scriptfile>
+</extension>

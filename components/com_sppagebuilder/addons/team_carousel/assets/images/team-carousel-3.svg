@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="146px" height="188px" viewBox="0 0 146 188" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>Team-layout3</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Team-layout3" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-3" transform="translate(2.000000, 57.000000)">
+            <rect id="Rectangle-Copy-29" stroke="#D6D9DD" fill="#FFFFFF" x="0.5" y="0.5" width="141" height="76" rx="4"></rect>
+            <g id="Group-4" transform="translate(6.000000, 6.000000)">
+                <rect id="Rectangle" fill="#F2F3F7" x="0" y="0" width="67" height="65" rx="4"></rect>
+                <g id="noun_profile_561365" transform="translate(16.000000, 13.000000)" fill="#D6D9DD" fill-rule="nonzero">
+                    <g id="Group">
+                        <path d="M18.0532155,0.10621464 C12.5118813,0.10621464 8.00409369,4.42641103 8.00409369,9.73714305 C8.00409369,15.0478751 12.5118813,19.3680715 18.0532155,19.3680715 C23.5945497,19.3680715 28.1028388,15.0478751 28.1028388,9.73714305 C28.1028388,4.42641103 23.5945497,0.10621464 18.0532155,0.10621464 L18.0532155,0.10621464 Z" id="Path"></path>
+                        <path d="M18.052714,21.653849 C8.34860922,21.653849 0.453837779,29.2200801 0.453837779,38.5203494 L35.6520918,38.5203494 C35.6525932,29.2200801 27.7573203,21.653849 18.052714,21.653849 Z" id="Path"></path>
+                    </g>
+                </g>
+            </g>
+            <g id="Group-8" transform="translate(79.000000, 22.000000)" fill="#D6D9DD">
+                <rect id="Rectangle" x="0" y="0" width="35.0517241" height="6" rx="3"></rect>
+                <rect id="Rectangle-Copy-6" x="0" y="11" width="57" height="3" rx="1.5"></rect>
+                <ellipse id="Oval" cx="1.73275862" cy="29.32" rx="1.73275862" ry="1.68"></ellipse>
+                <ellipse id="Oval-Copy" cx="8.0862069" cy="29.32" rx="1.73275862" ry="1.68"></ellipse>
+                <ellipse id="Oval-Copy-2" cx="14.4396552" cy="29.32" rx="1.73275862" ry="1.68"></ellipse>
+                <ellipse id="Oval-Copy-3" cx="20.7931034" cy="29.32" rx="1.73275862" ry="1.68"></ellipse>
+            </g>
+        </g>
+    </g>
+</svg>

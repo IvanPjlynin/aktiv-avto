@@ -1,0 +1,106 @@
+# 19.08.2021 Version 1.4.0
+- scripts expanded : default_form.php, defaultconfirm_form.php, redimstyle_form.php (no more links)
+- css-styles expanded
+- Optimizations for Joomla! 4
+
+# 03.03.2021 Version 1.3.23
+- adjustment of the redirect (redirect 301)
+
+# 05.01.2021 Version 1.3.22
+- Fixed poblem with redirect and &amp; 
+
+# 15.10.2020 Version 1.3.21
+- REFERER-Check
+- new language file fi-FI. Thanks to Petteri Korkala
+
+# 05.08.2020 Version 1.3.20
+- added setting for Content-Security-Policy (https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)
+
+# 28.07.2020 Version 1.3.19
+- url-params https://www.domain.de/?rCH=3 reset the cookie-noticfication
+- removes the notification when cookies are deactivated
+- you can set imprint links
+- fixed problems with  joomla-cache
+
+# 16.07.2020 Version 1.3.18
+- adjustment of the redirect
+
+# 02.04.2020 Version 1.3.17
+- fixed bug: confirmbuttons didn't work
+
+# 02.04.2020 Version 1.3.16
+- vulnerability (cross-site scripting) closed
+  Thanks to: P. Kreil
+
+# 20.02.2020 Version 1.3.15
+- language files updated
+- fixed problems with backend login
+
+# 07.02.2020 Version 1.3.14
+- Bug Fixed: Cookies were not blocked for url calls with ?tmpl=component.
+
+# 31.01.2020 Version 1.3.13
+- forwarding from https://www.domain.de/?rCH=1 to https://www.domain.de/
+- links with parameters (https://www.domain.de/?param=test&rCH=1)
+- optimizations in the settings (plugin)
+- language adaptation (DE, EN)
+
+# 21.01.2020 Version 1.3.12
+- javascript-error fixed (Thx to M. Schmitt)
+
+# 05.12.2019 Version 1.3.11
+- css style for buttons in redimstyle.css has been optimized
+- wrong button text in redimstyle.php has been adjusted
+
+# 08.11.2019 version 1.3.10
+- css style optimization
+- new notification position 'Modal'
+- by clicking on "accept" the page will be reloaded
+- optional: Cookie notificaton as on redim.de (css style in redimstyle.css | html/php code in redimstyle.php)
+
+# 28.10.2019 Version 1.3.9
+- improved cookie blocker
+- "nofollow" removed at cookie buttons
+- Joomla! 4 compatibility optimized
+
+# 28.01.2019 Version 1.3.8
+- new language file fr-FR
+  Thanks to: Gilles Testard & Philippe LÃ©vi
+
+# 16.11.2018 Version 1.3.7
+- optimization for the Joomla! component view (tmpl=component) thx RA
+
+# 05.10.2018 Version 1.3.6
+- problems with activated Joomla! Cache were solved
+- compressed JavaScript output has been added
+
+# 05.09.2018 Version 1.3.5
+- Vulnerability (cross-site scripting) closed
+- new language file cs-CZ
+  Thanks to: FrantiÅ¡ek BublÃ­k
+
+# 24.08.2018 Version 1.3.4
+- setCookie bug in PHP has been fixed
+- new language file  nl-NL
+  Thanks to: Onno Janssen
+
+# 09.07.2018 Version 1.3.3
+- new language file pl-PL
+- fixed bug in XML
+
+# 12.06.2018 Version 1.3.2
+- problem by saving the parameter 'reDimCookieHint' solved
+Â Â for some web pages, the cookie message reappeared on subpages
+- new language files: it-IT, es-ES
+  Thanks to: Gabriele aka Druskus (it-IT), Sven Grossenbacher (es-ES)
+
+# 24.05.2018 Version 1.3.1
+- fixed problems with Safari
+- changelog view
+- implementation of rel="nofollow"
+
+# 22.05.2018 Version 1.3
+- cookie blocker
+- decline button
+- storage duration of confirmation cookie
+- JavaScript without jQuery

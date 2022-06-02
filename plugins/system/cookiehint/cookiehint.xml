@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.4" type="plugin" group="system" method="upgrade">
+    <name>CookieHint and Consent</name>
+    <author>reDim GmbH</author>
+    <creationDate>27.07.2015</creationDate>
+    <copyright>reDim GmbH</copyright>
+    <license>GNU/GPL</license>
+    <authorEmail>team@reDim.de</authorEmail>
+    <authorUrl>http://www.redim.de</authorUrl>
+    <version>1.4.0</version>
+    <description>PLG_SYSTEM_COOKIEHINT_DESCRIPTION</description>
+    <files>
+        <filename plugin="cookiehint">cookiehint.php</filename>
+        <filename>index.html</filename>
+        <filename>changelog.txt</filename>
+        <filename>changelog_en.txt</filename>
+        <folder>include</folder>
+        <folder>versions</folder>
+        <folder>language</folder>
+        <folder>fields</folder>
+        <folder>img</folder>
+		<folder>css</folder>
+    </files>
+
+	<!-- Wird in Zukunft eingebaut
+	<media destination="plg_cookiehint" folder="media">
+		<folder>img</folder>
+		<folder>css</folder>
+	</media>
+	-->
+
+    <languages folder="language">
+        <language tag="en-GB">en-GB/en-GB.plg_system_cookiehint.ini</language>
+        <language tag="en-GB">en-GB/en-GB.plg_system_cookiehint.sys.ini</language>
+        <language tag="de-DE">de-DE/de-DE.plg_system_cookiehint.ini</language>
+        <language tag="de-DE">de-DE/de-DE.plg_system_cookiehint.sys.ini</language>
+        <language tag="fr-FR">fr-FR/fr-FR.plg_system_cookiehint.ini</language>
+        <language tag="fr-FR">fr-FR/fr-FR.plg_system_cookiehint.sys.ini</language>
+        <language tag="es-ES">es-ES/es-ES.plg_system_cookiehint.ini</language>
+        <language tag="es-ES">es-ES/es-ES.plg_system_cookiehint.sys.ini</language>
+        <language tag="it-IT">it-IT/it-IT.plg_system_cookiehint.ini</language>
+        <language tag="it-IT">it-IT/it-IT.plg_system_cookiehint.sys.ini</language>
+        <language tag="pl-PL">pl-PL/pl-PL.plg_system_cookiehint.ini</language>
+        <language tag="pl-PL">pl-PL/pl-PL.plg_system_cookiehint.sys.ini</language>
+        <language tag="nl-NL">nl-NL/nl-NL.plg_system_cookiehint.ini</language>
+        <language tag="nl-NL">nl-NL/nl-NL.plg_system_cookiehint.sys.ini</language>
+        <language tag="cs-CZ">cs-CZ/cs-CZ.plg_system_cookiehint.ini</language>
+        <language tag="cs-CZ">cs-CZ/cs-CZ.plg_system_cookiehint.sys.ini</language>
+    </languages>
+    <config>
+        <fields name="params" addfieldpath="plugins/system/cookiehint/fields">
+            <fieldset name="basic">
+
+				<field type="note" label="PLG_SYSTEM_COOKIEHINT_NOTE_LINKS" />
+ 			
+				<field name="infourl" type="langlinks" default="" label="PLG_SYSTEM_COOKIEHINT_MORE_INFO"
+					   description="PLG_SYSTEM_COOKIEHINT_MORE_INFO_DESC" />
+
+                <field name="imprinturl" type="langlinks" default="" label="PLG_SYSTEM_COOKIEHINT_URL_IMPRINT"
+                       description="PLG_SYSTEM_COOKIEHINT_URL_IMPRINT_DESC" />
+
+				<field type="note" label="PLG_SYSTEM_COOKIEHINT_NOTE_SETTINGS" />
+				
+				 <field name="refusal" type="list" default="1" label="PLG_SYSTEM_COOKIEHINT_REFUSAL"
+                       description="PLG_SYSTEM_COOKIEHINT_REFUSAL_DESC">
+                    <option value="0">JNO</option>
+                    <option value="1">PLG_SYSTEM_COOKIEHINT_YES_RECOMMENDED</option>
+                    <option value="2">PLG_SYSTEM_COOKIEHINT_REDIRECT</option>
+                </field>
+				
+				<field name="refusalurl" type="url" showon="refusal:2" default="https://www.cookieinfo.org/"
+                       class="input-xxlarge" label="PLG_SYSTEM_COOKIEHINT_REFUSAL_URL"
+                       description="PLG_SYSTEM_COOKIEHINT_REFUSAL_URL_DESC" />
+				
+				 <field name="cookieblocker" type="list" default="2" class="input"
+                       label="PLG_SYSTEM_COOKIEHINT_COOKIEBLOCKER"
+                       description="PLG_SYSTEM_COOKIEHINT_COOKIEBLOCKER_DESC">
+                    <option value="0">PLG_SYSTEM_COOKIEHINT_COOKIEBLOCKER0</option>
+                    <option value="1">PLG_SYSTEM_COOKIEHINT_COOKIEBLOCKER1</option>
+                    <option value="2">PLG_SYSTEM_COOKIEHINT_COOKIEBLOCKER2</option>
+                </field>
+
+
+                <field name="csp" type="textarea" showon="cookieblocker:2" label="PLG_SYSTEM_COOKIEHINT_CSP" hidden="false"
+                       description="PLG_SYSTEM_COOKIEHINT_CSP_DESC" default="default-src 'self' 'unsafe-inline'" />
+
+				 <field name="cookiemode" type="radio" default="0" label="PLG_SYSTEM_COOKIEHINT_MODE"
+                       description="PLG_SYSTEM_COOKIEHINT_MODE">
+                    <option value="0">PLG_SYSTEM_COOKIEHINT_MODE_DAYS</option>
+                    <option value="1">PLG_SYSTEM_COOKIEHINT_MODE_SESSION</option>
+                </field>
+				
+				 <field name="cookieexpires" type="number" showon="cookiemode:0" default="365"
+                       label="PLG_SYSTEM_COOKIEHINT_COOKIEEXPIRES"
+                       description="PLG_SYSTEM_COOKIEHINT_COOKIEEXPIRES_DESC" />
+				
+				<field type="note" label="PLG_SYSTEM_COOKIEHINT_NOTE_STYLE" />
+               
+                <field name="position" type="list" default="modal" label="PLG_SYSTEM_COOKIEHINT_POSITION"
+                       description="PLG_SYSTEM_COOKIEHINT_POSITION_DESC">
+                    <option value="modal">PLG_SYSTEM_COOKIEHINT_POSITION_MODAL</option>
+                    <option value="top">PLG_SYSTEM_COOKIEHINT_POSITION_TOP</option>
+                    <option value="bottom">PLG_SYSTEM_COOKIEHINT_POSITION_BOTTOM</option>
+                </field>
+
+                <field name="css" type="filelist" directory="plugins/system/cookiehint/css" filter=".css"
+                       default="redimstyle.css" label="PLG_SYSTEM_COOKIEHINT_CSS"
+                       description="PLG_SYSTEM_COOKIEHINT_CSS_DESC" />
+
+                <field name="file" type="filelist" directory="plugins/system/cookiehint/include" filter=".php"
+                       default="redimstyle.php" label="PLG_SYSTEM_COOKIEHINT_PHP"
+                       description="PLG_SYSTEM_COOKIEHINT_PHP_DESC" />
+
+
+                <field name="test" type="cookiehint" display="test" label="" hidden="true"
+                       description="PLG_SYSTEM_COOKIEHINT_TEST_DESC" />
+
+            </fieldset>
+
+            <fieldset name="information" addfieldpath="plugins/system/cookiehint/fields">
+
+                <field name="info" type="cookiehint" hidden="true" display="jtext"
+                       value="PLG_SYSTEM_COOKIEHINT_LANGINFO" />
+
+            </fieldset>
+
+            <fieldset name="changelog" addfieldpath="plugins/system/cookiehint/fields">
+
+                <field name="changelog" type="cookiehint" class="textarea" hidden="true" display="changelog" />
+
+            </fieldset>
+
+        </fields>
+
+    </config>
+    <updateservers>
+        <server type="extension" priority="1" name="reDim-Service-Update">https://www.redim.de/jupdates/cookiehint.xml
+        </server>
+    </updateservers>
+</extension>

@@ -1,0 +1,194 @@
+div.jspeed_icon {
+	background-image: url(../images/jspeed_logo.png);
+    background-repeat: no-repeat;
+    width: 48px;
+    height: 48px;
+    float: left;
+}
+
+fieldset.options-form>div {
+    display: block !important;
+    grid: none;
+    columns: unset;
+}
+
+fieldset.options-form [class*=" column-"]>div, fieldset.options-form [class^=column-]>div {
+	display: block;
+}
+
+joomla-tab-element[id*=attrib] > fieldset input.form-control,
+joomla-tab-element[id*=attrib] > fieldset select.form-select {
+	width: auto;
+	min-width: 220px;
+}
+
+joomla-tab-element[id*=attrib] div.subform-repeatable-wrapper input.form-control {
+	width: 100%;
+}
+
+joomla-tab-element[id*=attrib] > fieldset input.form-control[name*=css_selector] {
+	min-width: 400px;
+}
+
+div.sr-only {
+	display: none;
+}
+
+fieldset.options-form > legend {
+    display: none;
+}
+
+div.main_description {
+	font-weight: bold;
+	font-size: 20px;
+	color: #FFF;
+	background-color: #31708f;
+	display: inline-block;
+	padding: 4px 6px;
+	border-radius: 2px;
+	margin-top: 12px;
+	margin-left: 10px;
+	line-height: 18px;
+}
+
+div.jspeed-control-label blockquote {
+	margin-left: 1rem;
+}
+
+form[name=adminForm] div.control-group div.control-label,
+form[name=adminForm] div.controls fieldset legend.switcher__legend {
+    min-width: 300px;
+}
+
+form[name=adminForm] div.control-group div.control-label {
+    float: left;
+    width: 220px;
+    padding-top: 5px;
+    padding-right: 5px;
+    text-align: left;
+}
+
+form[name=adminForm] div.control-group div.control-label > label {
+    min-width: 150px;
+}
+
+span.badge.badge-primary label {
+	margin: 0;
+	padding: 0;
+}
+
+form[name=adminForm] div.controls fieldset div.switcher {
+    float: left;
+}
+
+form[name=adminForm] div.controls legend.switcher__legend { 
+	margin-left: 0;
+}
+
+form[name=adminForm] fieldset[class*=options-form] div.control-group div.controls {
+	float: left;
+    margin-left: auto;
+    min-width: 300px;
+}
+
+form[name=adminForm] div.control-group > div.controls + div {
+	display: none;	
+}
+
+form[name=adminForm] div.control-group div.controls div.minicolors, 
+form[name=adminForm] div.control-group div.controls joomla-field-media,
+form[name=adminForm] div.control-group div.controls .switcher__legend {
+	float: left;
+} 
+
+#jform_params_amp_components_views {
+	display: block !important;
+}
+
+#jform_params_custom_css_styles {
+	width: 500px;
+	max-width: 500px;
+}
+
+#jform_params_page_image_css_selector {
+	width: 350px;
+	max-width: 350px;
+}
+
+input.field-media-input {
+	min-width: 200px;
+}
+
+input.css-selectors {
+	width: 300px;
+	max-width: 300px;
+}
+
+joomla-tab joomla-tab-element:not([id='general']) div.controls textarea {
+	width: 500px;
+	resize: both;
+}
+
+span.badge.spacer {
+	line-height: 1.5;
+	padding: .3em .5em;
+}
+
+span.badge.spacer label {
+	margin: 0;
+	font-size: .9rem;
+	width: auto;
+	color: #FFF;
+}
+
+span.spacer blockquote {
+	padding: 0 0 0 15px;
+	margin: 0 0 18px;
+	border-left: 5px solid #eee;
+}
+
+div.jspeed-control-label {
+	clear: both;
+	margin-top: 20px;
+}
+
+div.jspeed-control-label span.spacer label{
+	width: auto;
+}
+
+small.form-text.text-muted {
+	display: none;
+}
+
+select.select2-dropdown {
+	display: none;
+}
+
+span.select2-container {
+	width: 300px;
+	min-width: 300px;
+	max-width: 300px;
+}
+
+img.dropdown-loading {
+	width: 32px;
+	height: 32px;
+}
+
+#subhead-container a.btn-jspeed {
+	background-color: #143252;
+    color: #FFF;
+}
+
+a.btn.btn-sm.btn-primary.btn-jspeed span {
+	color: #FFF;
+}
+
+#jform_params_pluginaccesslevels option:first-child {
+	font-weight: bold;
+    padding-left: 1px;
+}
+
+:focus+[role=tooltip], :hover+[role=tooltip] {
+    white-space: break-spaces;
+}

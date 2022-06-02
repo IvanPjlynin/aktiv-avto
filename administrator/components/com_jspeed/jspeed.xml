@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.0" method="upgrade">
+	<name>JSpeed</name>
+	<element>com_jspeed</element>
+	<author>Joomla! Extensions Store</author>
+	<creationDate>April 2022</creationDate>
+	<copyright>Copyright (C) 2020 - Joomla! Extensions Store. All Rights Reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>info@storejextensions.org</authorEmail>
+	<authorUrl>http://storejextensions.org</authorUrl>
+	<version>2.0</version>
+	<description>JSpeed</description>
+
+	<administration>
+		<files folder="admin">
+			<!-- Admin Main File Copy Section -->
+			<filename>index.html</filename>
+			<filename>jspeed.php</filename>
+			<!-- JS -->
+			<folder>js</folder>
+			<!-- CSS -->
+			<folder>css</folder>
+		</files>
+	</administration>
+	
+	<!-- UPDATE SERVERS -->
+	<updateservers>
+		<server type="extension" priority="1" name="JSpeed Update Server">http://storejextensions.org/updates/dummy.xml</server>
+	</updateservers>
+</extension>

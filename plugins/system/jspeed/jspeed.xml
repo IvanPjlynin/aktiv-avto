@@ -1,0 +1,745 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="4.0" type="plugin" group="system" method="upgrade">
+	<name>System - JSpeed</name>
+	<author>Joomla! Extensions Store</author>
+	<creationDate>April 2022</creationDate>
+	<copyright>Copyright (C) 2020 - Joomla! Extensions Store. All Rights Reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>info@storejextensions.org</authorEmail>
+	<authorUrl>http://storejextensions.org</authorUrl>
+	<version>2.0</version>
+	<description>PLG_JSPEED_DESC</description>
+
+	<scriptfile>installscript.php</scriptfile>
+
+	<files>
+		<filename plugin="jspeed">jspeed.php</filename>
+		<filename>index.html</filename>
+		<folder>fields</folder>
+		<folder>Framework</folder>
+	</files>
+	<languages folder="language">
+		<language tag="en-GB">en-GB/plg_system_jspeed.ini</language>
+		<language tag="en-GB">en-GB/plg_system_jspeed.sys.ini
+		</language>
+	</languages>
+	<media folder="media" destination="plg_jspeed">
+		<folder>css</folder>
+		<folder>js</folder>
+		<folder>images</folder>
+	</media>
+
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="assets" type="assets"></field>
+				<field name="registration_email" type="text" default="" size="30" label="PLG_JSPEED_EMAIL_REGISTRATION" description="PLG_JSPEED_EMAIL_REGISTRATION_DESC" />
+			</fieldset>
+			
+			<fieldset name="basic_options" label="PLG_JSPEED_MAIN_SETTINGS" addfieldpath="/plugins/system/jspeed/fields" addfieldprefix="/plugins/system/jspeed/Field">
+				<field type="spacer" class="badge bg-primary spacer" label="PLG_JSPEED_COMBINE"/>
+				<field name="combine_files_enable" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="PLG_JSPEED_COMBINE_ENABLE" description="PLG_JSPEED_COMBINE_ENABLE_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="css" type="radio" layout="joomla.form.field.radio.switcher" default="1" label="PLG_JSPEED_CSS" description="PLG_JSPEED_CSS_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="javascript" type="radio" layout="joomla.form.field.radio.switcher" default="1" label="PLG_JSPEED_JAVASCRIPT" description="PLG_JSPEED_JAVASCRIPT_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				
+				<field type="spacer" class="badge bg-primary spacer" label="PLG_JSPEED_MINIFICATION"/>
+				<field name="css_minify" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="PLG_JSPEED_COMPRESS_CSS" description="PLG_JSPEED_COMPRESS_CSS_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="js_minify" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="PLG_JSPEED_COMPRESS_JAVASCRIPT" description="PLG_JSPEED_COMPRESS_JAVASCRIPT_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="html_minify" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="PLG_JSPEED_COMPRESS_HTML" description="PLG_JSPEED_COMPRESS_HTML_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="html_minify_level" type="list" default="0" label="PLG_JSPEED_MINIFY_LEVEL" description="PLG_JSPEED_MINIFY_LEVEL_DESC">
+					<option value="0">PLG_JSPEED_MINIFY_LEVEL_BASIC</option>
+					<option value="1">PLG_JSPEED_MINIFY_LEVEL_ADVANCED</option>
+					<option value="2">PLG_JSPEED_MINIFY_LEVEL_ULTRA</option>
+				</field>
+				<field name="only_css_minify" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="PLG_JSPEED_ONLY_CSS_MINIFY" description="PLG_JSPEED_ONLY_CSS_MINIFY_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="only_js_minify" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="PLG_JSPEED_ONLY_JS_MINIFY" description="PLG_JSPEED_ONLY_JS_MINIFY_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				
+				<field type="spacer" class="badge bg-primary spacer" label="PLG_JSPEED_OPTIMIZATION_SETTINGS"/>
+				<field name="cache_lifetime" type="list" default="60" label="PLG_JSPEED_CACHE_LIFETIME" description="PLG_JSPEED_CACHE_LIFETIME_DESC">
+					<option value="1">PLG_JSPEED_1_MIN</option>
+					<option value="5">PLG_JSPEED_5_MIN</option>
+					<option value="10">PLG_JSPEED_10_MIN</option>
+					<option value="15">PLG_JSPEED_15_MIN</option>
+					<option value="30">PLG_JSPEED_30_MIN</option>
+					<option value="60">PLG_JSPEED_1_HOUR</option>
+					<option value="180">PLG_JSPEED_3_HOURS</option>
+					<option value="360">PLG_JSPEED_6_HOURS</option>
+					<option value="720">PLG_JSPEED_12_HOURS</option>
+					<option value="1440">PLG_JSPEED_1_DAY</option>
+					<option value="2880">PLG_JSPEED_2_DAYS</option>
+					<option value="10080">PLG_JSPEED_7_DAYS</option>
+					<option value="20160">PLG_JSPEED_2_WEEKS</option>
+				</field>
+				<field name="reduce_unused_css" type="list" default="0" label="PLG_JSPEED_REDUCE_UNUSED_CSS" description="PLG_JSPEED_REDUCE_UNUSED_CSS_DESC">
+					<option value="0">PLG_JSPEED_REDUCE_UNUSED_CSS_DISABLED</option>
+					<option value="1">PLG_JSPEED_REDUCE_UNUSED_CSS_EMPTY</option>
+					<option value="2">PLG_JSPEED_REDUCE_UNUSED_CSS_SEMICOLON</option>
+				</field>
+				<field name="font_display_swap" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="PLG_JSPEED_FONT_DISPLAY_SWAP" description="PLG_JSPEED_FONT_DISPLAY_SWAP_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="defer_combined_css" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="PLG_JSPEED_DEFER_COMBINED_CSS" description="PLG_JSPEED_DEFER_COMBINED_CSS_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="defer_combined_css_delay" type="list" default="1" label="PLG_JSPEED_DEFER_COMBINED_CSS_DELAY" description="PLG_JSPEED_DEFER_COMBINED_CSS_DELAY_DESC">
+					<option value="0">PLG_JSPEED_0MS</option>
+					<option value="1">PLG_JSPEED_1MS</option>
+					<option value="20">PLG_JSPEED_20MS</option>
+					<option value="50">PLG_JSPEED_50MS</option>
+					<option value="100">PLG_JSPEED_100MS</option>
+					<option value="200">PLG_JSPEED_200MS</option>
+					<option value="300">PLG_JSPEED_300MS</option>
+					<option value="500">PLG_JSPEED_500MS</option>
+					<option value="600">PLG_JSPEED_600MS</option>
+					<option value="700">PLG_JSPEED_700MS</option>
+					<option value="800">PLG_JSPEED_800MS</option>
+					<option value="900">PLG_JSPEED_900MS</option>
+					<option value="1000">PLG_JSPEED_1000MS</option>
+				</field>
+				<field name="defer_combined_js" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="PLG_JSPEED_DEFER_COMBINED_JS" description="PLG_JSPEED_DEFER_COMBINED_JS_DESC">
+	                <option value="0">JNO</option>
+	                <option value="1">JYES</option>
+				</field>
+				<field name="bottom_js" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="PLG_JSPEED_POSITION_JS" description="PLG_JSPEED_POSITION_JS_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="load_asynchronous" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="PLG_JSPEED_LOADASYNCHRONOUS" description="PLG_JSPEED_LOADASYNCHRONOUS_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="preload_font_face" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="PLG_JSPEED_PRELOAD_FONT_FACE" description="PLG_JSPEED_PRELOAD_FONT_FACE_DESC">
+	                <option value="0">JNO</option>
+	                <option value="1">JYES</option>
+				</field>
+				<field name="preload_combined_js" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="PLG_JSPEED_PRELOAD_COMBINED_JS" description="PLG_JSPEED_PRELOAD_COMBINED_JS_DESC">
+	                <option value="0">JNO</option>
+	                <option value="1">JYES</option>
+				</field>
+				<field name="preload_module_scripts" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="PLG_JSPEED_PRELOAD_MODULE_SCRIPTS" description="PLG_JSPEED_PRELOAD_MODULE_SCRIPTS_DESC">
+	                <option value="0">JNO</option>
+	                <option value="1">JYES</option>
+				</field>
+				<field name="load_css_byjs" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="PLG_JSPEED_LOAD_CSS_BYJS" description="PLG_JSPEED_LOAD_CSS_BYJS_DESC">
+	                <option value="0">JNO</option>
+	                <option value="1">JYES</option>
+				</field>
+				<field name="load_js_byjs" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="PLG_JSPEED_LOAD_JS_BYJS" description="PLG_JSPEED_LOAD_JS_BYJS_DESC">
+	                <option value="0">JNO</option>
+	                <option value="1">JYES</option>
+				</field>
+				<field name="http_transport" type="list" default="curl" label="PLG_JSPEED_HTTP_TRANSPORT" description="PLG_JSPEED_HTTP_TRANSPORT_DESC">
+					<option value="socket">PLG_JSPEED_HTTP_TRANSPORT_SOCKET</option>
+					<option value="curl">PLG_JSPEED_HTTP_TRANSPORT_CURL</option>
+					<option value="stream">PLG_JSPEED_HTTP_TRANSPORT_STREAM</option>
+				</field>
+				<field name="try_catch" type="radio" layout="joomla.form.field.radio.switcher" default="1" label="PLG_JSPEED_TRY_CATCH" description="PLG_JSPEED_TRY_CATCH_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="clear_server_cache" type="radio" class="lastmargin" layout="joomla.form.field.radio.switcher" default="0" label="PLG_JSPEED_CLEAR_SERVER_CACHE" description="PLG_JSPEED_CLEAR_SERVER_CACHE_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+			</fieldset>
+			
+			<fieldset name="inclusions" label="PLG_JSPEED_INCLUDE_OPTIONS_FIELDSET">
+				<field type="spacer" class="badge bg-primary spacer" label="PLG_JSPEED_INCLUDE_ASSETS"/>
+				<field name="include_all_extensions" type="radio" layout="joomla.form.field.radio.switcher" default="1" label="PLG_JSPEED_INCLUDE_ALL_ASSETS" description="PLG_JSPEED_INCLUDE_ALL_ASSETS_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="replace_imports" type="radio" layout="joomla.form.field.radio.switcher" default="1" label="PLG_JSPEED_REPLACEIMPORTS" description="PLG_JSPEED_REPLACEIMPORTS_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="php_and_external_resources" type="radio" layout="joomla.form.field.radio.switcher" default="1" label="PLG_JSPEED_PHPANDEXTERNAL" description="PLG_JSPEED_PHPANDEXTERNAL_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="inline_style" type="radio" layout="joomla.form.field.radio.switcher" default="1" label="PLG_JSPEED_INLINESTYLE" description="PLG_JSPEED_INLINESTYLE_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="inline_scripts" type="radio" layout="joomla.form.field.radio.switcher" default="1" label="PLG_JSPEED_INLINESCRIPTS" description="PLG_JSPEED_INLINESCRIPTS_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+			</fieldset>
+			
+			<fieldset name="exclusions" label="PLG_JSPEED_EXCLUDE_OPTIONS_FIELDSET">
+				<field type="spacer" class="badge bg-primary spacer" label="PLG_JSPEED_EXCLUDECSS"/>
+				<field name="exclude_css" type="excludecss" default="" label="PLG_JSPEED_EXCLUDE_CSS" description="PLG_JSPEED_EXCLUDE_CSS_DESC"></field>
+				<field name="exclude_css_components" type="excludecssextns" default="" label="PLG_JSPEED_EXCLUDE_CSS_COMPONENTS" description="PLG_JSPEED_EXCLUDE_CSS_COMPONENTS_DESC"></field>
+				<field name="exclude_styles" type="excludestyles" default="" label="PLG_JSPEED_EXCLUDE_STYLES" description="PLG_JSPEED_EXCLUDE_STYLES_DESC"></field>
+				
+				<field type="spacer" class="badge bg-primary spacer" label="PLG_JSPEED_EXCLUDE_JS_ORDERED"/>
+				<field name="exclude_js_by_order" type="excludejs" default="" label="PLG_JSPEED_EXCLUDE_JS" description="PLG_JSPEED_EXCLUDE_JS_DESC"></field>
+				<field name="exclude_js_components_by_order" type="excludejsextns" default="" label="PLG_JSPEED_EXCLUDE_JS_COMPONENTS" description="PLG_JSPEED_EXCLUDE_JS_COMPONENTS_DESC"></field>
+				<field name="exclude_scripts_by_order" type="excludescripts" default="" label="PLG_JSPEED_EXCLUDE_SCRIPT" description="PLG_JSPEED_EXCLUDE_SCRIPT_DESC"></field>
+				
+				<field type="spacer" class="badge bg-primary spacer" label="PLG_JSPEED_EXCLUDE_JS_UNORDERED"/>
+				<field name="exclude_js" type="excludejs" default="" label="PLG_JSPEED_EXCLUDE_JS" description="PLG_JSPEED_EXCLUDE_ALT_JS_DESC"></field>
+				<field name="exclude_js_components" type="excludejsextns" default="" label="PLG_JSPEED_EXCLUDE_JS_COMPONENTS" description="PLG_JSPEED_EXCLUDE_ALT_JS_COMPONENTS_DESC"></field>
+				<field name="exclude_scripts" type="excludescripts" default="" label="PLG_JSPEED_EXCLUDE_SCRIPT" description="PLG_JSPEED_EXCLUDE_SCRIPT_DESC"></field>
+				
+				<field type="spacer" class="badge bg-primary spacer" label="PLG_JSPEED_MENU_URL_EXCLUSIONS"/>
+				<field name="menuexcludedurl" type="excludeurl" default="" label="PLG_JSPEED_MENUEXCLUDEDURL" description="PLG_JSPEED_MENUEXCLUDEDURL_DESC"></field>
+				<field name="menuexcluded" type="menuselection" multiple="multiple" size="15" label="PLG_JSPEED_MENU_ITEMS_EXCLUDE" description="PLG_JSPEED_MENU_ITEMS_EXCLUDE_DESC"></field>
+				
+				<field type="spacer" class="badge bg-primary spacer" label="PLG_JSPEED_EXCLUDE_ACCESS_LEVELS"/>
+				<field name="pluginaccesslevels" type="jspeedaccesslevel" multiple="multiple" class="form-select" label="PLG_JSPEED_EXCLUDE_ACCESS_LEVELS_GROUPS" description="PLG_JSPEED_EXCLUDE_ACCESS_LEVELS_GROUPS_DESC"></field>
+				
+				<field type="spacer" class="badge bg-primary spacer" label="PLG_JSPEED_GLOBAL_EXCLUSIONS"/>
+				<field name="auto_exclude_deferred_files" type="list" default="1" label="PLG_JSPEED_AUTO_EXCLUDE_DEFERRED_FILES" description="PLG_JSPEED_AUTO_EXCLUDE_DEFERRED_FILES_DESC">
+					<option value="0">PLG_JSPEED_AUTO_EXCLUDE_DEFERRED_FILES_NO</option>
+					<option value="1">PLG_JSPEED_AUTO_EXCLUDE_DEFERRED_FILES_YES_DEFER_MODULE</option>
+					<option value="2">PLG_JSPEED_AUTO_EXCLUDE_DEFERRED_FILES_YES_MODULE</option>
+				</field>
+				
+				<field name="exclude_all_styles" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="PLG_JSPEED_EXCLUDEALLSTYLES" description="PLG_JSPEED_EXCLUDEALLSTYLES_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="exclude_all_scripts" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="PLG_JSPEED_EXCLUDEALLSCRIPTS" description="PLG_JSPEED_EXCLUDEALLSCRIPTS_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="auto_exclude_core_files" type="radio" layout="joomla.form.field.radio.switcher" default="1" label="PLG_JSPEED_AUTO_EXCLUDE_CORE_FILES" description="PLG_JSPEED_AUTO_EXCLUDE_CORE_FILES_DESC">
+	                <option value="0">JNO</option>
+	                <option value="1">JYES</option>
+				</field>
+				
+				<field type="spacer" class="badge bg-primary spacer" label="PLG_JSPEED_DEFER_EXCLUSIONS"/>
+				<field name="defer_js" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="PLG_JSPEED_DEFER_JS" description="PLG_JSPEED_DEFER_JS_DESC">
+	                <option value="0">JNO</option>
+	                <option value="1">JYES</option>
+				</field>
+				<field name="exclude_defer" type="excludedefer" default="" label="PLG_JSPEED_EXCLUDE_DEFER" description="PLG_JSPEED_EXCLUDE_DEFER_DESC"></field>
+			</fieldset>
+			
+			<fieldset name="lazyload" label="PLG_JSPEED_FEATURES_FIELDSET_LAZY_LOAD">
+				<field type="spacer" class="badge bg-primary spacer" label="PLG_JSPEED_LAZYLOAD_SETTINGS"/>
+				<field name="lazyload" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="PLG_JSPEED_LAZYLOAD" description="PLG_JSPEED_LAZYLOAD_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="excludeLazyLoad" type="excludelazyload" default="" label="PLG_JSPEED_EXCLUDE_LAZYLOAD" description="PLG_JSPEED_EXCLUDE_LAZYLOAD_DESC"></field>
+				<field name="excludeLazyLoadFolders" type="excludelazyloadfolders" default="" label="PLG_JSPEED_EXCLUDE_LAZYLOADFOLDER" description="PLG_JSPEED_EXCLUDE_LAZYLOADFOLDER_DESC"></field>
+				<field name="excludeLazyLoadClass" type="excludelazyloadclass" default="" label="PLG_JSPEED_EXCLUDE_LAZYLOADCLASS" description="PLG_JSPEED_EXCLUDE_LAZYLOADCLASS_DESC"></field>
+				<field name="excludeLazyLoadCssSelector" type="text" default="" size="30" label="PLG_JSPEED_EXCLUDE_LAZYLOADCSS_SELECTOR" description="PLG_JSPEED_EXCLUDE_LAZYLOADCSS_SELECTOR_DESC" />
+				<field name="excludeLazyLoadUrl" type="excludeurl" default="" label="PLG_JSPEED_EXCLUDE_LAZYLOAD_URL" description="PLG_JSPEED_EXCLUDE_LAZYLOAD_URL_DESC"></field>
+				<field name="excludeLazyLoadMenuitem" type="menuselection" multiple="multiple" size="15" label="PLG_JSPEED_EXCLUDE_LAZYLOAD_MENUITEM" description="PLG_JSPEED_EXCLUDE_LAZYLOAD_MENUITEM_DESC"></field>
+				<field name="lazyload_effects" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="PLG_JSPEED_LAZYLOAD_EFFECTS" description="PLG_JSPEED_LAZYLOAD_EFFECTS_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="lazyload_autosize" type="list" default="0" label="PLG_JSPEED_LAZYLOAD_AUTOSIZE" description="PLG_JSPEED_LAZYLOAD_AUTOSIZE_DESC">
+					<option value="0">PLG_JSPEED_LAZYLOAD_AUTOSIZE_NONE</option>
+					<option value="1">PLG_JSPEED_LAZYLOAD_AUTOSIZE_PHP</option>
+					<option value="2">PLG_JSPEED_LAZYLOAD_AUTOSIZE_JS</option>
+				</field>
+				<field name="lazyload_autosize_style" type="list" default="attributes" label="PLG_JSPEED_LAZYLOAD_AUTOSIZE_STYLE" description="PLG_JSPEED_LAZYLOAD_AUTOSIZE_STYLE_DESC">
+					<option value="attributes">PLG_JSPEED_LAZYLOAD_AUTOSIZE_STYLE_ATTRIBUTES</option>
+					<option value="style">PLG_JSPEED_LAZYLOAD_AUTOSIZE_STYLE_STYLE</option>
+				</field>
+				<field name="fix_relative_links" type="radio" layout="joomla.form.field.radio.switcher" default="1" label="PLG_JSPEED_FIX_RELATIVE_LINKS" description="PLG_JSPEED_FIX_RELATIVE_LINKS_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="lazyload_include_iframes" type="radio" layout="joomla.form.field.radio.switcher" default="1" label="PLG_JSPEED_LAZYLOAD_INCLUDE_IFRAMES" description="PLG_JSPEED_LAZYLOAD_INCLUDE_IFRAMES_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="lazyload_force_recursive" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="PLG_JSPEED_LAZYLOAD_FORCE_RECURSIVE" description="PLG_JSPEED_LAZYLOAD_FORCE_RECURSIVE_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="lazyload_mode" type="list" default="both" label="PLG_JSPEED_LAZYLOAD_MODE" description="PLG_JSPEED_LAZYLOAD_MODE_DESC">
+					<option value="both">PLG_JSPEED_LAZYLOAD_MODE_BOTH</option>
+					<option value="native">PLG_JSPEED_LAZYLOAD_MODE_NATIVE</option>
+				</field>
+				<field name="lazyload_add_noscript" type="radio" layout="joomla.form.field.radio.switcher" default="1" label="PLG_JSPEED_LAZYLOAD_ADD_NOSCRIPT" description="PLG_JSPEED_LAZYLOAD_ADD_NOSCRIPT_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				
+				<field type="spacer" class="badge bg-primary spacer" label="PLG_JSPEED_LAZYLOAD_HTML"/>
+				<field name="lazyload_html_enable" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="PLG_JSPEED_LAZYLOAD_HTML_ENABLE" description="PLG_JSPEED_LAZYLOAD_HTML_ENABLE_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="lazyload_html_css_selector" type="text" default="" label="PLG_JSPEED_LAZYLOAD_HTML_CSS_SELECTOR" description="PLG_JSPEED_LAZYLOAD_HTML_CSS_SELECTOR_DESC"></field>
+				<field name="lazyload_method" type="list" default="scroll" label="PLG_JSPEED_LAZYLOAD_METHOD" description="PLG_JSPEED_LAZYLOAD_METHOD_DESC">
+					<option value="scroll">PLG_JSPEED_LAZYLOAD_METHOD_SCROLL</option>
+					<option value="delay">PLG_JSPEED_LAZYLOAD_METHOD_DELAY</option>
+				</field>
+				<field name="lazyload_html_delay" type="list" default="3000" label="PLG_JSPEED_LAZYLOAD_HTML_DELAY" description="PLG_JSPEED_LAZYLOAD_HTML_DELAY_DESC">
+					<option value="100">PLG_JSPEED_100MS</option>
+					<option value="200">PLG_JSPEED_200MS</option>
+					<option value="300">PLG_JSPEED_300MS</option>
+					<option value="500">PLG_JSPEED_500MS</option>
+					<option value="600">PLG_JSPEED_600MS</option>
+					<option value="700">PLG_JSPEED_700MS</option>
+					<option value="800">PLG_JSPEED_800MS</option>
+					<option value="900">PLG_JSPEED_900MS</option>
+					<option value="1000">PLG_JSPEED_1000MS</option>
+					<option value="1500">PLG_JSPEED_1500MS</option>
+					<option value="2000">PLG_JSPEED_2000MS</option>
+					<option value="2500">PLG_JSPEED_2500MS</option>
+					<option value="3000">PLG_JSPEED_3000MS</option>
+					<option value="3500">PLG_JSPEED_3500MS</option>
+					<option value="4000">PLG_JSPEED_4000MS</option>
+					<option value="4500">PLG_JSPEED_4500MS</option>
+					<option value="5000">PLG_JSPEED_5000MS</option>
+					<option value="5500">PLG_JSPEED_5500MS</option>
+					<option value="6000">PLG_JSPEED_6000MS</option>
+				</field>
+				<field name="lazyload_html_use_important_override" layout="joomla.form.field.radio.switcher" default="0" label="PLG_JSPEED_LAZYLOAD_HTML_USE_IMPORTANT_OVERRIDE" description="PLG_JSPEED_LAZYLOAD_HTML_USE_IMPORTANT_OVERRIDE_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+			</fieldset>
+			
+			<fieldset name="plugin_lightimgs" label="PLG_JSPEED_PLUGIN_IMAGES_CONFIG"> 
+				<field type="spacer" class="badge bg-primary spacer" label="PLG_JSPEED_PLUGIN_IMAGES_OPTIMIZE"/>
+				<field name="lightimgs_status" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="PLG_JSPEED_LIGHTIMAGES_STATUS" description="PLG_JSPEED_LIGHTIMAGES_STATUS_DESC">
+		     		<option value="0">JNO</option>
+		      		<option value="1">JYES</option>
+		        </field>
+		        <field name="img_processing_minwidth" type="text" default="300" label="PLG_JSPEED_LIGHTIMAGES_PROCESSING_MINWIDTH" description="PLG_JSPEED_LIGHTIMAGES_PROCESSING_MINWIDTH_DESC" />
+				<field name="img_quality" type="list" default="70" label="PLG_JSPEED_LIGHTIMAGES_QUALITY" description="PLG_JSPEED_LIGHTIMAGES_QUALITY_DESC">
+					<option value="40">40</option>
+				 	<option value="45">45</option>
+					<option value="50">50</option>
+					<option value="55">55</option>
+				 	<option value="60">60</option>
+				 	<option value="65">65</option>
+				 	<option value="70">70</option>
+				 	<option value="75">75</option>
+				 	<option value="80">80</option>
+				 	<option value="85">85</option>
+					<option value="90">90</option>
+		    	</field>
+		    	<field name="img_resizing_switcher" type="radio" layout="joomla.form.field.radio.switcher" default="1" label="PLG_JSPEED_LIGHTIMAGES_RESIZING_SWITCHER" description="PLG_JSPEED_LIGHTIMAGES_RESIZING_SWITCHER_DESC">
+		     		<option value="0">JNO</option>
+		      		<option value="1">JYES</option>
+		        </field>   
+		    	<field name="img_resizing" type="list" default="60" label="PLG_JSPEED_LIGHTIMAGES_RESIZING" description="PLG_JSPEED_LIGHTIMAGES_RESIZING_DESC">
+					<option value="20">20</option>
+					<option value="25">25</option>
+					<option value="30">30</option>
+				 	<option value="35">35</option>
+		    		<option value="40">40</option>
+					<option value="45">45</option>
+					<option value="50">50</option>
+					<option value="55">55</option>
+				 	<option value="60">60</option>
+				 	<option value="65">65</option>
+				 	<option value="70">70</option>
+				 	<option value="75">75</option>
+				 	<option value="80">80</option>
+				 	<option value="85">85</option>
+					<option value="90">90</option>
+		    	</field>
+		    	<field name="img_resizing_minwidth" type="text" default="300" label="PLG_JSPEED_LIGHTIMAGES_RESIZING_MINWIDTH" description="PLG_JSPEED_LIGHTIMAGES_RESIZING_MINWIDTH_DESC" />
+		    	<field name="webservice_processing" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="PLG_JSPEED_WEBSERVICE_PROCESSING" description="PLG_JSPEED_WEBSERVICE_PROCESSING_DESC">
+		     		<option value="0">JNO</option>
+		      		<option value="1">JYES</option>
+		        </field>
+		    	<field name="convert_all_images_to_webp" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="PLG_JSPEED_CONVERT_ALL_IMAGES_TO_WEBP" description="PLG_JSPEED_CONVERT_ALL_IMAGES_TO_WEBP_DESC">
+		     		<option value="0">JNO</option>
+		      		<option value="1">JYES</option>
+		        </field>
+		        <field name="optimize_css_background_images" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="PLG_JSPEED_OPTIMIZE_CSS_BACKGROUND_IMAGES" description="PLG_JSPEED_OPTIMIZE_CSS_BACKGROUND_IMAGES_DESC">
+		     		<option value="0">JNO</option>
+		      		<option value="1">JYES</option>
+		        </field>
+		        <field name="optimize_html_background_images" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="PLG_JSPEED_OPTIMIZE_HTML_BACKGROUND_IMAGES" description="PLG_JSPEED_OPTIMIZE_HTML_BACKGROUND_IMAGES_DESC">
+		     		<option value="0">JNO</option>
+		      		<option value="1">JYES</option>
+		        </field> 
+		        <field name="img_support_gif" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="PLG_JSPEED_LIGHTIMAGES_OPTIMIZEGIF" description="PLG_JSPEED_LIGHTIMAGES_OPTIMIZEGIF_DESC">
+		     		<option value="0">JNO</option>
+		      		<option value="1">JYES</option>
+		        </field>
+		        <field name="hash_images_algo" type="list" default="full" label="PLG_JSPEED_LIGHTIMAGES_HASH_IMAGES_ALGO" description="PLG_JSPEED_LIGHTIMAGES_HASH_IMAGES_ALGO_DESC">
+		    		<option value="full">PLG_JSPEED_LIGHTIMAGES_HASH_IMAGES_ALGO_FULL</option>
+					<option value="partial">PLG_JSPEED_LIGHTIMAGES_HASH_IMAGES_ALGO_PARTIAL</option>
+				 	<option value="none">PLG_JSPEED_LIGHTIMAGES_HASH_IMAGES_ALGO_NONE</option>
+				</field>    
+		        <field name="img_exts_excluded" type="list" default="" multiple="multiple" size="5" label="PLG_JSPEED_LIGHTIMAGES_EXTS_EXCLUDED" description="PLG_JSPEED_LIGHTIMAGES_EXTS_EXCLUDED_DESC">
+					<option value="">PLG_JSPEED_LIGHTIMAGES_ALLEXTS</option>
+		    		<option value="jpeg">jpeg</option>
+					<option value="jpg">jpg</option>
+				 	<option value="png">png</option>
+					<option value="gif">gif</option>
+					<option value="bmp">bmp</option>
+				</field>
+				<field name="img_files_excluded" type="excludefiles" multiple="multiple" label="PLG_JSPEED_LIGHTIMAGES_IMGS_EXCLUDED" description="PLG_JSPEED_LIGHTIMAGES_IMGS_EXCLUDED_DESC" default=""></field>
+				<field name="img_class_excluded" type="excludefiles" multiple="multiple" label="PLG_JSPEED_LIGHTIMAGES_IMGS_EXCLUDED_CLASS" description="PLG_JSPEED_LIGHTIMAGES_IMGS_EXCLUDED_CLASS_DESC" default=""></field>
+				<field name="img_menu_excluded" type="menuselection" multiple="multiple" size="15" label="PLG_JSPEED_LIGHTIMAGES_IMGS_MENU_ITEMS_EXCLUDE" description="PLG_JSPEED_LIGHTIMAGES_IMGS_MENU_ITEMS_EXCLUDE_DESC"></field>
+				<field name="img_processing_datasrc" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="PLG_JSPEED_LIGHTIMAGES_PROCESSING_DATASRC" description="PLG_JSPEED_LIGHTIMAGES_PROCESSING_DATASRC_DESC">
+		     		<option value="0">JNO</option>
+		      		<option value="1">JYES</option>
+		        </field>
+		        <field name="add_size_attributes" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="PLG_JSPEED_IMAGE_ATTRIBUTES" description="PLG_JSPEED_IMAGES_ATTRIBUTES_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+		        <field name="img_processing_entity_decode" type="radio" layout="joomla.form.field.radio.switcher" default="1" label="PLG_JSPEED_LIGHTIMAGES_PROCESSING_ENTITY_DECODE" description="PLG_JSPEED_LIGHTIMAGES_PROCESSING_ENTITY_DECODE_DESC">
+		     		<option value="0">JNO</option>
+		      		<option value="1">JYES</option>
+		        </field>
+		        <field name="img_processing_utf8_entity_decode" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="PLG_JSPEED_LIGHTIMAGES_PROCESSING_UTF8_ENTITY_DECODE" description="PLG_JSPEED_LIGHTIMAGES_PROCESSING_UTF8_ENTITY_DECODE_DESC">
+		     		<option value="0">JNO</option>
+		      		<option value="1">JYES</option>
+		        </field>
+				<field name="purify_string" type="textarea" filter="raw" rows="10" default="" label="PLG_JSPEED_LIGHTIMAGES_PURIFY_STRING" description="PLG_JSPEED_LIGHTIMAGES_PURIFY_STRING_DESC" />
+				<field name="purify_string_replacement" type="textarea" filter="raw" rows="10" default="" label="PLG_JSPEED_LIGHTIMAGES_PURIFY_STRING_REPLACEMENT" description="PLG_JSPEED_LIGHTIMAGES_PURIFY_STRING_REPLACEMENT_DESC" />
+				 
+				<field type="spacer" class="badge bg-primary spacer" label="PLG_JSPEED_PLUGIN_IMAGES_OPTIMIZE_SRCSET"/>
+				<field name="img_processing_srcset" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="PLG_JSPEED_LIGHTIMAGES_IMG_PROCESSING_SRCSET" description="PLG_JSPEED_LIGHTIMAGES_IMG_PROCESSING_SRCSET_DESC">
+		     		<option value="0">JNO</option>
+		      		<option value="1">JYES</option>
+		        </field>
+		        
+		        <field name="img_processing_srcset_starting_quality" type="list" default="90" label="PLG_JSPEED_LIGHTIMAGES_IMG_PROCESSING_SRCSET_STARTING_QUALITY" description="PLG_JSPEED_LIGHTIMAGES_IMG_PROCESSING_SRCSET_STARTING_QUALITY_DESC">
+					<option value="40">40</option>
+				 	<option value="45">45</option>
+					<option value="50">50</option>
+					<option value="55">55</option>
+				 	<option value="60">60</option>
+				 	<option value="65">65</option>
+				 	<option value="70">70</option>
+				 	<option value="75">75</option>
+				 	<option value="80">80</option>
+				 	<option value="85">85</option>
+					<option value="90">90</option>
+					<option value="95">95</option>
+		    	</field>
+		        <field name="img_processing_srcset_quality_decrease_step" type="list" default="15" label="PLG_JSPEED_LIGHTIMAGES_IMG_PROCESSING_SRCSET_QUALITY_DECREASE_STEP" description="PLG_JSPEED_LIGHTIMAGES_IMG_PROCESSING_SRCSET_QUALITY_DECREASE_STEP_DESC">
+					<option value="5">5</option>
+					<option value="10">10</option>
+					<option value="15">15</option>
+				 	<option value="20">20</option>
+				 	<option value="25">25</option>
+		    	</field>
+		    	
+		    	<field name="img_processing_srcset_starting_resize" type="list" default="100" label="PLG_JSPEED_LIGHTIMAGES_IMG_PROCESSING_SRCSET_STARTING_RESIZE" description="PLG_JSPEED_LIGHTIMAGES_IMG_PROCESSING_SRCSET_STARTING_RESIZE_DESC">
+					<option value="40">40</option>
+				 	<option value="45">45</option>
+					<option value="50">50</option>
+					<option value="55">55</option>
+				 	<option value="60">60</option>
+				 	<option value="65">65</option>
+				 	<option value="70">70</option>
+				 	<option value="75">75</option>
+				 	<option value="80">80</option>
+				 	<option value="85">85</option>
+					<option value="90">90</option>
+					<option value="95">95</option>
+					<option value="100">100</option>
+		    	</field>
+		    	<field name="img_processing_srcset_resize_decrease_step" type="list" default="20" label="PLG_JSPEED_LIGHTIMAGES_IMG_PROCESSING_SRCSET_RESIZE_DECREASE_STEP" description="PLG_JSPEED_LIGHTIMAGES_IMG_PROCESSING_SRCSET_RESIZE_DECREASE_STEP_DESC">
+					<option value="5">5</option>
+					<option value="10">10</option>
+					<option value="15">15</option>
+				 	<option value="20">20</option>
+				 	<option value="25">25</option>
+		    	</field>
+		    	<field name="img_processing_srcset_original_image" type="list" default="0" label="PLG_JSPEED_LIGHTIMAGES_IMG_PROCESSING_SRCSET_ORIGINAL_IMAGE" description="PLG_JSPEED_LIGHTIMAGES_IMG_PROCESSING_SRCSET_ORIGINAL_IMAGE_DESC">
+					<option value="-1">PLG_JSPEED_LIGHTIMAGES_IMG_PROCESSING_SRCSET_ORIGINAL_IMAGE_ORIGINAL</option>
+					<option value="0">4x</option>
+					<option value="1">3x</option>
+				 	<option value="2">2x</option>
+				 	<option value="3">1x</option>
+		    	</field>
+			</fieldset>
+			
+			<fieldset name="adaptivecontents" label="PLG_JSPEED_FIELDSET_ADAPTIVE_CONTENTS">
+				<field type="spacer" class="badge bg-primary spacer" label="PLG_JSPEED_ADAPTIVE_CONTENTS_SETTINGS"/>
+				<field name="adaptive_contents_enable" type="radio" default="0" layout="joomla.form.field.radio.switcher" label="PLG_JSPEED_ADAPTIVE_CONTENTS_ENABLE" description="PLG_JSPEED_ADAPTIVE_CONTENTS_ENABLE_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="adaptive_contents_css_selector" type="text" default="" label="PLG_JSPEED_ADAPTIVE_CONTENTS_CSS_SELECTOR" description="PLG_JSPEED_ADAPTIVE_CONTENTS_CSS_SELECTOR_DESC"></field>
+				<field name="adaptive_contents_bots_list" type="excludefiles" multiple="multiple" label="PLG_JSPEED_ADAPTIVE_CONTENTS_BOTS_LIST" description="PLG_JSPEED_ADAPTIVE_CONTENTS_BOTS_LIST_DESC" default="lighthouse,googlebot,googlebot-mobile,googlebot-image,googlebot-video,gtmetrix,bingbot,baiduspider,duckduckbot,twitterbot,applebot,semrushbot">
+					<option value="lighthouse">Lighthouse</option>
+					<option value="googlebot">Googlebot</option>
+					<option value="googlebot-mobile">Googlebot-Mobile</option>
+					<option value="googlebot-image">Googlebot-Image</option>
+					<option value="googlebot-video">Googlebot-Video</option>
+					<option value="gtmetrix">GTMetrix</option>
+					<option value="bingbot">Bingbot</option>
+					<option value="baiduspider">Baiduspider</option>
+					<option value="duckduckbot">Duckduckbot</option>
+					<option value="twitterbot">Twitterbot</option>
+					<option value="applebot">Applebot</option>
+					<option value="semrushbot">Semrushbot</option>
+				</field>
+				<field name="adaptive_contents_remove_js" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="PLG_JSPEED_ADAPTIVE_CONTENTS_REMOVE_JS" description="PLG_JSPEED_ADAPTIVE_CONTENTS_REMOVE_JS_DESC">
+	                <option value="0">JNO</option>
+	                <option value="1">JYES</option>
+				</field>
+				<field name="adaptive_contents_remove_js_files" type="removejsfiles" default="" label="PLG_JSPEED_ADAPTIVE_CONTENTS_REMOVE_JS_FILES" description="PLG_JSPEED_ADAPTIVE_CONTENTS_REMOVE_JS_FILES_DESC"></field>
+				<field name="adaptive_contents_remove_css" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="PLG_JSPEED_ADAPTIVE_CONTENTS_REMOVE_CSS" description="PLG_JSPEED_ADAPTIVE_CONTENTS_REMOVE_CSS_DESC">
+	                <option value="0">JNO</option>
+	                <option value="1">JYES</option>
+				</field>
+				<field name="adaptive_contents_remove_css_files" type="removecssfiles" default="" label="PLG_JSPEED_ADAPTIVE_CONTENTS_REMOVE_CSS_FILES" description="PLG_JSPEED_ADAPTIVE_CONTENTS_REMOVE_CSS_FILES_DESC"></field>
+				
+				<field name="adaptive_contents_remove_all_js" type="radio" default="0" layout="joomla.form.field.radio.switcher" label="PLG_JSPEED_ADAPTIVE_CONTENTS_REMOVE_ALL_JS" description="PLG_JSPEED_ADAPTIVE_CONTENTS_REMOVE_ALL_JS_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="adaptive_contents_remove_all_css" type="radio" default="0" layout="joomla.form.field.radio.switcher" label="PLG_JSPEED_ADAPTIVE_CONTENTS_REMOVE_ALL_CSS" description="PLG_JSPEED_ADAPTIVE_CONTENTS_REMOVE_ALL_CSS_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+			</fieldset>
+			
+			<fieldset name="http2" label="PLG_JSPEED_FEATURES_FIELDSET_HTTP2">
+				<field type="spacer" class="badge bg-primary spacer" label="PLG_JSPEED_HTTP2"/>
+				<field name="http2_push_enabled" type="radio" default="0" layout="joomla.form.field.radio.switcher" label="PLG_JSPEED_HTTP2_PUSH" description="PLG_JSPEED_HTTP2_PUSH_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="http2_exclude_deferred" type="radio" default="1" layout="joomla.form.field.radio.switcher" label="PLG_JSPEED_HTTP2_EXCLUDE_DEFERRED" description="PLG_JSPEED_HTTP2_EXCLUDE_DEFERRED_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="http2_exclude_dynamic" type="radio" default="0" layout="joomla.form.field.radio.switcher" label="PLG_JSPEED_HTTP2_EXCLUDE_DYNAMIC" description="PLG_JSPEED_HTTP2_EXCLUDE_DYNAMIC_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="http2_file_types" type="excludefiles" multiple="multiple" label="PLG_JSPEED_HTTP2_FILE_TYPES" description="PLG_JSPEED_HTTP2_FILE_TYPES_DESC" default="style,script,font,image">
+					<option value="style">style</option>
+					<option value="script">script</option>
+					<option value="font">font</option>
+					<option value="image">image</option>
+				</field>
+			</fieldset>
+			
+			<fieldset name="assetsremoval" label="PLG_JSPEED_FEATURES_FIELDSET_ASSETS_REMOVAL">
+				<field type="spacer" class="badge bg-primary spacer" label="PLG_JSPEED_INSTANT_PAGE"/>
+				<field name="enable_instant_page" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="PLG_JSPEED_INSTANT_PAGE_ENABLE" description="PLG_JSPEED_INSTANT_PAGE_ENABLE_DESC">
+	                <option value="0">JNO</option>
+	                <option value="1">JYES</option>
+				</field>
+				<field name="instant_page_delay" type="list" default="fast" label="PLG_JSPEED_INSTANT_PAGE_DELAY" description="PLG_JSPEED_INSTANT_PAGE_DELAY_DESC">
+					<option value="fast">PLG_JSPEED_INSTANT_PAGE_DELAY_FAST</option>
+					<option value="slow">PLG_JSPEED_INSTANT_PAGE_DELAY_SLOW</option>
+				</field>
+				
+				<field type="spacer" class="badge bg-primary spacer" label="PLG_JSPEED_REMOVAL_EXCLUSIONS"/>
+				<field name="remove_js" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="PLG_JSPEED_REMOVE_JS" description="PLG_JSPEED_REMOVE_JS_DESC">
+	                <option value="0">JNO</option>
+	                <option value="1">JYES</option>
+				</field>
+				<field name="remove_js_files" type="removejsfiles" default="" label="PLG_JSPEED_REMOVE_JS_FILES" description="PLG_JSPEED_REMOVE_JS_FILES_DESC"></field>
+				<field name="remove_css" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="PLG_JSPEED_REMOVE_CSS" description="PLG_JSPEED_REMOVE_CSS_DESC">
+	                <option value="0">JNO</option>
+	                <option value="1">JYES</option>
+				</field>
+				<field name="remove_css_files" type="removecssfiles" default="" label="PLG_JSPEED_REMOVE_CSS_FILES" description="PLG_JSPEED_REMOVE_CSS_FILES_DESC"></field>
+				<field name="remove_font_face" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="PLG_JSPEED_REMOVE_FONT_FACE" description="PLG_JSPEED_REMOVE_FONT_FACE_DESC">
+	                <option value="0">JNO</option>
+	                <option value="1">JYES</option>
+				</field>
+				<field name="remove_font_face_family" type="removefontface" default="" label="PLG_JSPEED_REMOVE_FONT_FACE_FAMILY" description="PLG_JSPEED_REMOVE_FONT_FACE_FAMILY_DESC"></field>
+				
+				<field type="spacer" class="badge bg-primary spacer" label="PLG_JSPEED_CUSTOM_CSS"/>
+				<field name="add_custom_css_code" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="PLG_JSPEED_ADD_CUSTOM_CSS_CODE" description="PLG_JSPEED_ADD_CUSTOM_CSS_CODE_DESC">
+	                <option value="0">JNO</option>
+	                <option value="1">JYES</option>
+				</field>
+				<field name="custom_css_code" type="textarea" cols="50" rows="10" default="" label="PLG_JSPEED_CUSTOM_CSS_CODE" description="PLG_JSPEED_CUSTOM_CSS_CODE_DESC"></field>
+				
+				<field type="spacer" class="badge bg-primary spacer" label="PLG_JSPEED_CUSTOM_JS"/>
+				<field name="add_custom_js_code" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="PLG_JSPEED_ADD_CUSTOM_JS_CODE" description="PLG_JSPEED_ADD_CUSTOM_JS_CODE_DESC">
+	                <option value="0">JNO</option>
+	                <option value="1">JYES</option>
+				</field>
+				<field name="custom_js_code" type="textarea" cols="50" rows="10" default="" label="PLG_JSPEED_CUSTOM_JS_CODE" description="PLG_JSPEED_CUSTOM_JS_CODE_DESC"></field>
+				
+				<field type="spacer" class="badge bg-primary spacer" label="PLG_JSPEED_CUSTOM_HTML"/>
+				<field name="add_custom_html_code" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="PLG_JSPEED_ADD_CUSTOM_HTML_CODE" description="PLG_JSPEED_ADD_CUSTOM_HTML_CODE_DESC">
+	                <option value="0">JNO</option>
+	                <option value="1">JYES</option>
+				</field>
+				<field name="custom_html_code" type="textarea" filter="raw" cols="50" rows="10" default="" label="PLG_JSPEED_CUSTOM_HTML_CODE" description="PLG_JSPEED_CUSTOM_HTML_CODE_DESC"></field>
+				
+				<field type="spacer" class="badge bg-primary spacer" label="PLG_JSPEED_CUSTOM_PRELOAD_FONTS"/>
+				<field name="preload_font_links" type="subform" label="PLG_JSPEED_PRELOAD_FONT_LINKS" description="PLG_JSPEED_PRELOAD_FONT_LINKS_DESC" layout="joomla.form.field.subform.repeatable-table" icon="list" multiple="true">
+					<form hidden="true" name="preload_font_links_form" repeat="true">
+						<field
+							name="value"
+							type="text"
+							label="PLG_JSPEED_PRELOAD_FONT_LINKS_VALUE"
+							description="PLG_JSPEED_PRELOAD_FONT_LINKS_VALUE_DESC"
+							size="50"
+						/>
+						<field
+							name="type"
+							type="text"
+							label="PLG_JSPEED_PRELOAD_FONT_LINKS_TYPE"
+							description="PLG_JSPEED_PRELOAD_FONT_LINKS_TYPE_DESC"
+							size="20"
+						/>
+					</form>
+				</field>
+				<field type="spacer" class="badge bg-primary spacer" label="PLG_JSPEED_CUSTOM_PRELOAD_SCRIPTS"/>
+				<field name="preload_script_links" type="subform" label="PLG_JSPEED_PRELOAD_SCRIPT_LINKS" description="PLG_JSPEED_PRELOAD_SCRIPT_LINKS_DESC" layout="joomla.form.field.subform.repeatable-table" icon="list" multiple="true">
+					<form hidden="true" name="preload_script_links_form" repeat="true">
+						<field
+							name="value"
+							type="text"
+							label="PLG_JSPEED_PRELOAD_SCRIPT_LINKS_VALUE"
+							description="PLG_JSPEED_PRELOAD_SCRIPT_LINKS_VALUE_DESC"
+							size="70"
+						/>
+					</form>
+				</field>
+				<field type="spacer" class="badge bg-primary spacer" label="PLG_JSPEED_CUSTOM_PRELOAD_STYLES"/>
+				<field name="preload_styles_links" type="subform" label="PLG_JSPEED_PRELOAD_STYLE_LINKS" description="PLG_JSPEED_PRELOAD_STYLE_LINKS_DESC" layout="joomla.form.field.subform.repeatable-table" icon="list" multiple="true">
+					<form hidden="true" name="preload_style_links_form" repeat="true">
+						<field
+							name="value"
+							type="text"
+							label="PLG_JSPEED_PRELOAD_STYLE_LINKS_VALUE"
+							description="PLG_JSPEED_PRELOAD_STYLE_LINKS_VALUE_DESC"
+							size="70"
+						/>
+					</form>
+				</field>
+				<field type="spacer" class="badge bg-primary spacer" label="PLG_JSPEED_CUSTOM_PRELOAD_IMAGES"/>
+				<field name="preload_images_links" type="subform" label="PLG_JSPEED_PRELOAD_IMAGE_LINKS" description="PLG_JSPEED_PRELOAD_IMAGE_LINKS_DESC" layout="joomla.form.field.subform.repeatable-table" icon="list" multiple="true">
+					<form hidden="true" name="preload_image_links_form" repeat="true">
+						<field
+							name="value"
+							type="text"
+							label="PLG_JSPEED_PRELOAD_IMAGE_LINKS_VALUE"
+							description="PLG_JSPEED_PRELOAD_IMAGE_LINKS_VALUE_DESC"
+							size="70"
+						/>
+					</form>
+				</field>
+			</fieldset>
+			
+			<fieldset name="combinedimage" label="PLG_JSPEED_FEATURES_FIELDSET_COMBINEDIMAGE_GENERATOR">
+				<field type="spacer" class="badge bg-primary spacer" label="PLG_JSPEED_COMBINEDIMAGE_GENERATOR_SETTINGS"/>
+				<field name="combinedimage_enabled" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="PLG_JSPEED_COMBINEDIMAGE_GENERATOR" description="PLG_JSPEED_COMBINEDIMAGE_GENERATOR_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="combinedimage_orientation" type="list" default="vertical" label="PLG_JSPEED_COMBINEDIMAGE_DIRECTION" description="PLG_JSPEED_COMBINEDIMAGE_DIRECTION_DESC">
+					<option value="vertical">PLG_JSPEED_COMBINEDIMAGE_VERTICAL</option>
+					<option value="horizontal">PLG_JSPEED_COMBINEDIMAGE_HORIZONTAL</option>
+				</field>
+				<field name="combinedimage_autoformat" type="radio" layout="joomla.form.field.radio.switcher" default="0" label="PLG_JSPEED_COMBINEDIMAGE_WRAP_IMAGES" description="PLG_JSPEED_COMBINEDIMAGE_WRAP_IMAGES_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="combinedimage_exclude_images" type="excludeimages" default="" label="PLG_JSPEED_COMBINEDIMAGE_EXCLUDE_IMAGES" description="PLG_JSPEED_COMBINEDIMAGE_EXCLUDE_IMAGES_DESC">
+				</field>
+				<field name="combinedimage_include_images" type="includeimages" default="" label="PLG_JSPEED_COMBINEDIMAGE_INCLUDE_IMAGES" description="PLG_JSPEED_COMBINEDIMAGE_INCLUDE_IMAGES_DESC">
+				</field>
+			</fieldset>
+			
+			<fieldset name="features" label="PLG_JSPEED_FEATURES_FIELDSET_CDN">
+				<field type="spacer" class="badge bg-primary spacer" label="PLG_JSPEED_CDN_SETTINGS"/>
+				<field name="cdn_loading_enable" type="radio" default="0" layout="joomla.form.field.radio.switcher" label="PLG_JSPEED_ENABLE_CDN" description="PLG_JSPEED_ENABLE_CDN_DESC">
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field name="cdn_scheme" type="list" default="0" label="PLG_JSPEED_CDN_SCHEME" description="PLG_JSPEED_CDN_SCHEME_DESC">
+					<option value="0">PLG_JSPEED_SCHEME_RELATIVE</option>
+					<option value="1">PLG_JSPEED_HTTP</option>
+					<option value="2">PLG_JSPEED_HTTPS</option>
+				</field>
+				
+				<field type="spacer" class="badge bg-primary spacer" label="PLG_JSPEED_CDN_SETTINGS1"/>
+				<field name="cdn_loadingdomain_1" type="text" default="" label="PLG_JSPEED_CDN_LOADINGDOMAIN_1" description="PLG_JSPEED_CDN_LOADINGDOMAIN_1_DESC"></field>
+				<field name="cdn_staticfiles" type="excludefiles" multiple="multiple" label="PLG_JSPEED_STATICFILES" description="PLG_JSPEED_STATICFILES_DESC" default="css,js,jpe?g,gif,png,ico,bmp,pdf,webp,svg">
+					<option value="css">css</option>
+					<option value="js">js</option>
+					<option value="jpe?g">jpg</option>
+					<option value="gif">gif</option>
+					<option value="png">png</option>
+					<option value="ico">ico</option>
+					<option value="bmp">bmp</option>
+					<option value="pdf">pdf</option>
+					<option value="webp">webp</option>
+					<option value="svg">svg</option>
+				</field>
+				
+				<field type="spacer" class="badge bg-primary spacer" label="PLG_JSPEED_CDN_SETTINGS2"/>
+				<field name="cdn_loadingdomain_2" type="text" default="" label="PLG_JSPEED_CDN_LOADINGDOMAIN_2" description="PLG_JSPEED_CDN_LOADINGDOMAIN_2_DESC"></field>
+				<field name="cdn_staticfiles_2" type="excludefiles" multiple="multiple" label="PLG_JSPEED_STATICFILES2" description="PLG_JSPEED_STATICFILES2_DESC" default="css,js,jpe?g,gif,png,ico,bmp,pdf,webp,svg">
+					<option value="css">css</option>
+					<option value="js">js</option>
+					<option value="jpe?g">jpg</option>
+					<option value="gif">gif</option>
+					<option value="png">png</option>
+					<option value="ico">ico</option>
+					<option value="bmp">bmp</option>
+					<option value="pdf">pdf</option>
+					<option value="webp">webp</option>
+					<option value="svg">svg</option>
+				</field>
+				
+				<field type="spacer" class="badge bg-primary spacer" label="PLG_JSPEED_CDN_SETTINGS3"/>
+				<field name="cdn_loadingdomain_3" type="text" default="" label="PLG_JSPEED_CDN_LOADINGDOMAIN_3" description="PLG_JSPEED_CDN_LOADINGDOMAIN_3_DESC"></field>
+				<field name="cdn_staticfiles_3" type="excludefiles" multiple="multiple" label="PLG_JSPEED_STATICFILES3" description="PLG_JSPEED_STATICFILES3_DESC" default="css,js,jpe?g,gif,png,ico,bmp,pdf,webp,svg">
+					<option value="css">css</option>
+					<option value="js">js</option>
+					<option value="jpe?g">jpg</option>
+					<option value="gif">gif</option>
+					<option value="png">png</option>
+					<option value="ico">ico</option>
+					<option value="bmp">bmp</option>
+					<option value="pdf">pdf</option>
+					<option value="webp">webp</option>
+					<option value="svg">svg</option>
+				</field>
+				
+				<field name="cdn_assets_excluded" type="excludefiles" multiple="multiple" label="PLG_JSPEED_CDN_ASSETS_EXCLUDED" description="PLG_JSPEED_CDN_ASSETS_EXCLUDED_DESC" default=""></field>
+			</fieldset>
+		</fields>
+	</config>
+	
+	<!-- CHANGELOG -->
+	<changelogurl>http://storejextensions.org/changelogs/jspeed.xml</changelogurl>
+	
+	<!-- UPDATE SERVERS -->
+	<updateservers>
+		<server type="extension" priority="1" name="JSpeed Update Server">http://storejextensions.org/updates/jspeed_updater.xml</server>
+	</updateservers>
+</extension>

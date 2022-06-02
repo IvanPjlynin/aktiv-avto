@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.6" method="upgrade">
+	<name>SP Page Builder</name>
+	<author>JoomShaper</author>
+	<creationDate>Sep 2014</creationDate>
+	<authorEmail>support@joomshaper.com</authorEmail>
+	<authorUrl>https://www.joomshaper.com</authorUrl>
+	<copyright>Copyright @ 2010 - 2022 JoomShaper. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later</license>
+	<version>3.8.6</version>
+	<scriptfile>installer.script.php</scriptfile>
+
+	<updateservers>
+		<server type="extension" priority="1" name="SP Page Builder">https://www.joomshaper.com/updates/com-sp-page-builder-pro.xml</server>
+	</updateservers>
+
+	<install>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install/mysql/install.mysql.utf8.sql</file>
+			<file driver="mysql">sql/install/mysql/install.mysql.utf8.sql</file>
+
+			<file driver="mysqli" charset="utf8">sql/install/mysql/install.mysql.utf8.sql</file>
+			<file driver="mysqli">sql/install/mysql/install.mysql.utf8.sql</file>
+		</sql>
+	</install>
+
+	<update>
+		<schemas>
+			<schemapath type="mysql">sql/updates/mysql</schemapath>
+			<schemapath type="mysqli">sql/updates/mysql</schemapath>
+		</schemas>
+	</update>
+
+	<files folder="site">
+		<filename>sppagebuilder.php</filename>
+		<filename>router.php</filename>
+		<filename>controller.php</filename>
+		<folder>addons</folder>
+		<folder>assets</folder>
+		<folder>helpers</folder>
+		<folder>models</folder>
+		<folder>controllers</folder>
+		<folder>parser</folder>
+		<folder>views</folder>
+		<folder>layouts</folder>
+	</files>
+
+	<languages folder="language/site">
+		<language tag="en-GB">en-GB/en-GB.com_sppagebuilder.ini</language>
+	</languages>
+
+	<plugins>
+        <plugin name="sppagebuilder" group="system" activate="true" />
+        <plugin name="sppagebuilderproupdater" group="system" activate="true" />
+        <plugin name="sppagebuilder" group="search" activate="false" />
+        <plugin name="sppagebuilder" group="finder" activate="false" />
+        <plugin name="sppagebuilder" group="content" activate="false" />
+        <plugin name="sppagebuilder" group="spsimpleportfolio" activate="false" />
+        <plugin name="sppagebuilder" group="k2" activate="false" />
+	</plugins>
+
+	<modules>
+		<module module="mod_sppagebuilder" client="site" />
+		<module module="mod_sppagebuilder_admin_menu" client="administrator" position="menu" ordering="1" platform="joomla3" />
+	</modules>
+
+	<administration>
+		<menu>COM_SPPAGEBUILDER</menu>
+		<submenu>
+			<menu link="option=com_sppagebuilder&amp;view=pages" view="pages">
+				COM_SPPAGEBUILDER_PAGES
+			</menu>
+			<menu link="option=com_sppagebuilder&amp;view=media" view="media">
+				COM_SPPAGEBUILDER_MEDIA
+			</menu>
+			<menu link="option=com_categories&amp;extension=com_sppagebuilder" view="categories">
+				COM_SPPAGEBUILDER_CATEGORIES
+			</menu>
+			<menu link="option=com_sppagebuilder&amp;view=integrations" view="integrations">
+				COM_SPPAGEBUILDER_INTEGRATIONS
+			</menu>
+			<menu link="option=com_sppagebuilder&amp;view=languages" view="languages">
+				COM_SPPAGEBUILDER_LANGUAGES
+			</menu>
+			<menu link="option=com_sppagebuilder&amp;view=about" view="about">
+				COM_SPPAGEBUILDER_ABOUT
+			</menu>
+		</submenu>
+
+		<files folder="admin">
+			<filename>access.xml</filename>
+			<filename>config.xml</filename>
+			<filename>sppagebuilder.php</filename>
+			<filename>controller.php</filename>
+			<folder>assets</folder>
+			<folder>builder</folder>
+			<folder>controllers</folder>
+			<folder>models</folder>
+			<folder>helpers</folder>
+			<folder>sql</folder>
+			<folder>tables</folder>
+			<folder>views</folder>
+			<folder>layouts</folder>
+		</files>
+
+		<languages folder="language/admin">
+			<language tag="en-GB">en-GB/en-GB.com_sppagebuilder.ini</language>
+			<language tag="en-GB">en-GB/en-GB.com_sppagebuilder.sys.ini</language>
+			<language tag="en-GB">en-GB/en-GB.mod_sppagebuilder_admin_menu.ini</language>
+			<language tag="en-GB">en-GB/en-GB.mod_sppagebuilder_admin_menu.sys.ini</language>
+		</languages>
+
+	</administration>
+</extension>

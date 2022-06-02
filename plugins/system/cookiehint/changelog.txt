@@ -1,0 +1,106 @@
+# 19.08.2021 Version 1.4.0
+- Scripte erweitert: default_form.php, defaultconfirm_form.php, redimstyle_form.php (Keine Links mehr)
+- CSS-Styles erweitert
+- Optimierungen für Joomla! 4
+
+# 03.03.2021 Version 1.3.23
+- Anpassung der Weiterleitung (redirect 301)
+
+# 05.01.2021 Version 1.3.22
+- Problem wegen &amp; im Redirect behoben
+
+# 15.10.2020 Version 1.3.21
+- REFERER-Check
+- Weitere Sprachfiles: fi-FI. Dank an Petteri Korkala
+
+# 05.08.2020 Version 1.3.20
+- Einstellung für Content-Security-Policy eingebaut (https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)
+
+# 28.07.2020 Version 1.3.19
+- Url-Parameter https://www.domain.de/?rCH=3 setzt die Cookie-Abfrage zurück
+- Die Cookie-Abfrage wird entfernt wenn Cookies über den Browser blockiert werden
+- Impressum-Links können angeben werden
+- Probleme mit Joomla!-Cache behoben
+
+# 16.07.2020 Version 1.3.18
+- Anpassung der Weiterleitung (redirect)
+
+# 02.04.2020 Version 1.3.17
+- Folgefehler behoben: Die Bestätigung funktionierte nicht mehr
+
+# 02.04.2020 Version 1.3.16
+- Sicherheitslücke (Cross-Site-Scripting) geschlossen.
+- Dank an: P. Kreil
+
+# 20.02.2020 Version 1.3.15
+- Update der Sprachfiles
+- Probleme mit Backend-Login behoben
+
+# 07.02.2020 Version 1.3.14
+- Bug behoben: Bei Url-Aufrufe mit ?tmpl=component wurden die Cookies nicht blockiert.
+
+# 31.01.2020 Version 1.3.13
+- Weiterleitung von https://www.domain.de/?rCH=1 auf https://www.domain.de/
+- Links mit Parameter (https://www.domain.de/?param=test&rCH=1)
+- Optimierungen bei den Einstellungen (Plugin)
+- Sprachanpassung (DE, EN)
+
+# 21.01.2020 Version 1.3.12
+- JavaScript-Fehler behoben (Danke an M. Schmitt)
+
+# 05.12.2019 Version 1.3.11
+- CSS-Style für Buttons in redimstyle.css wurde optimiert
+- Falscher Button-Text in redimstyle.php wurde angepasst
+
+# 08.11.2019 Version 1.3.10
+- CSS-Styles optimiert
+- Position Modal angezeigt
+- Bei Klick auf "akzeptieren" wird jetzt die Seite neu geladen
+- Optional: Cookiemeldung wie auf redim.de (CSS-Style auf redimstyle.css | HTML/PHP-Code auf redimstyle.php)
+
+# 28.10.2019 Version 1.3.9
+- Cookie-Blocker verbessert
+- "nofollow" bei Cookie-Buttons entfernt
+- Joomla! 4 kompatibilität optimiert
+
+# 28.01.2019 Version 1.3.8
+- Neues Sprachfile fr-FR
+  Dank an: Gilles Testard & Philippe Lévi
+
+# 16.11.2018 Version 1.3.7
+- Optimierung für die Joomla!-Komponentenansicht (tmpl=component) thx RA
+
+# 05.10.2018 Version 1.3.6
+- Probleme bei aktivierten Joomla!-Cache wurden gelöst.
+- Komprimierte JavaScript-Ausgabe wurde eingebaut.
+
+# 05.09.2018 Version 1.3.5
+- Sicherheitslücke (Cross-Site-Scripting) geschlossen.
+- Neues Sprachfile cs-CZ
+  Dank an: František Bublík
+
+# 24.08.2018 Version 1.3.4
+- setCookie-Fehler in PHP wurde behoben.
+- Neues Sprachfile nl-NL
+  Dank an: Onno Janssen
+
+# 09.07.2018 Version 1.3.3
+- Neues Sprachfile pl-PL
+- Fehler in XML behoben
+
+# 12.06.2018 Version 1.3.2
+- Evtl. Probleme beim speichern des Parameter 'reDimCookieHint' behoben.
+  Bei einigen Webseiten wurde die Cookie-Meldung pro Unterseite erneut angezeigt.
+- Weitere Sprachfiles: it-IT, es-ES
+  Dank an: Gabriele aka Druskus (it-IT), Sven Grossenbacher (es-ES)
+
+# 24.05.2018 Version 1.3.1
+- Probleme mit Safari behoben.
+- Changelog-Ansicht
+- rel="nofollow" eingebaut.
+
+# 22.05.2018 Version 1.3
+- Cookieblocker
+- Ablehnen-Button 
+- Speicherdauer von Bestätigungs-Cookie
+- JavaScript ohne jQuery

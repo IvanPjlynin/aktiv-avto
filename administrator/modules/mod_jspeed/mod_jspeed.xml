@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="4.0" client="administrator" method="upgrade">
+	<name>JSpeed Panel</name>
+	<author>Joomla! Extensions Store</author>
+	<creationDate>April 2022</creationDate>
+	<copyright>Copyright (C) 2021 - Joomla! Extensions Store. All Rights Reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>info@storejextensions.org</authorEmail>
+	<authorUrl>http://storejextensions.org</authorUrl>
+	<version>2.0</version>
+	<description>JSpeed Panel module</description>
+	<namespace>JExtStore\Module\Jspeed</namespace>
+	
+	<files>
+		<filename module="mod_jspeed">mod_jspeed.php</filename>
+		<folder>tmpl</folder>
+		<folder>language</folder>
+		<folder>Helper</folder>
+	</files>
+	
+	<!-- UPDATE SERVERS -->
+	<updateservers>
+		<server type="extension" priority="1" name="JSpeed Update Server">http://storejextensions.org/updates/dummy.xml</server>
+	</updateservers>
+</extension>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.1" type="plugin" group="finder" method="upgrade">
+	<name>plg_finder_sppagebuilder</name>
+	<author>JoomShaper</author>
+	<creationDate>March 2018</creationDate>
+	<copyright>(C) 2010 - 2019 JoomShaper. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>support@joomshaper.com</authorEmail>
+	<authorUrl>www.joomshaper.com</authorUrl>
+	<version>1.6.1</version>
+	<description>PLG_FINDER_SP_PAGEBUILDER_XML_DESCRIPTION</description>
+	<files>
+		<filename plugin="sppagebuilder">sppagebuilder.php</filename>
+	</files>
+	<languages>
+		<language tag="en-GB">language/en-GB.plg_finder_sppagebuilder.ini</language>
+		<language tag="en-GB">language/en-GB.plg_finder_sppagebuilder.sys.ini</language>
+	</languages>
+</extension>

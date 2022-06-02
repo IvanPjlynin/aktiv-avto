@@ -1,0 +1,126 @@
+body, div, p, h1, h2, h3, h4, h5, h6, a {
+    font-family: 'Open Sans Condensed', sans-serif !important;
+}
+
+
+
+#whatsapp_widget {display: flex;justify-content: center;align-items: center;z-index:9999; position: fixed; right: 20px; bottom:20px; width: 50px; height: 50px;  background-color: #FFF; border-radius: 50px; box-shadow: 0px 6px 25px rgb(0 0 0 / 25%) }
+#whatsapp_widget svg {margin:2px 1px 0 0;transition: height 0.4s; height: 90%; fill: #27D246;}
+#whatsapp_widget:hover svg {height: 95%;}
+#whatsapp_widget>span{color: #454545;
+    margin-right: 10px;
+    font-size: 16px;
+    /*font-family: 'Font Awesome 5 Free';*/
+    
+}
+#whatsapp_widget{width: unset; padding: 0 0 0 15px;}
+#whatsapp_widget {
+    animation: 3s radial-pulse 10s infinite;
+    /*border: 2px solid #00000030;*/
+    box-shadow: 3px 4px 4px #00000045;
+}
+
+.sp-scroll-up {
+    bottom: 80px;
+}
+
+
+.sppb-btn,
+.sppb-sp-slider-button,
+#whatsapp_widget span {
+  /*width: 100%;
+  max-width: 280px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2px;
+  margin-bottom: 30px;
+  border: none;
+  border-radius: 3px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+  background: #eb9f11;
+  box-shadow: 0 3px 3px #be8316;
+  cursor: pointer;
+  text-decoration: none;*/
+ 
+  /* Важные стили для анимации */
+  position: relative;
+  overflow: hidden;
+}
+ 
+.sppb-btn:after,
+.sppb-sp-slider-button:after,
+#whatsapp_widget span:after {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 200px;
+  margin-left: 50px;
+  background: #fff;
+  background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.5) 0%,
+      rgba(255, 255, 255, 1) 50%,
+      rgba(255, 255, 255, 0.5) 100%
+  );
+  left: -40px;
+  top: -100px;
+  z-index: 1;
+  transform: rotate(45deg);
+  position: absolute;
+  animation: movingFlare 3s ease-in-out 0.02s infinite;
+}
+
+
+
+ 
+@keyframes movingFlare {
+  0% {
+    left: -30px;
+    margin-left: 0px;
+  }
+  30% {
+    left: 110%;
+    margin-left: 80px;
+  }
+  100% {
+    left: 110%;
+    margin-left: 80px;
+  }
+}
+
+
+#mod-custom112 {
+    font-size: 16px;
+}
+
+.sp-contact-info li {
+    font-size: 16px;
+}
+.sp-megamenu-parent>li>a {
+    font-size: 18px;
+}
+
+#column-wrap-id-1534232643662 h2 {
+    text-shadow: 4px 4px 8px #000;
+}
+
+#column-wrap-id-1534232643662 .sppb-addon-content {
+    text-shadow: 1px 1px 1px #00000069;
+}
+
+
+#whatsapp_widget {
+        display:none;
+    }
+
+@media (max-width: 780px) {
+    #whatsapp_widget {
+        display:block;
+    }
+}
